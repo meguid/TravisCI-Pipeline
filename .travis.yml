@@ -4,4 +4,4 @@ xcode_scheme: travis-ci-exTests
 xcode_destination: platform=iOS Simulator,name=iPhone 8 Plus,OS=11.1
 podfile: Podfile
 after_success:
-- bash <(curl -s https://codecov.io/bash) -t 72c87507-66c5-46bc-965a-cc777e9bfb08
+- bash <(curl -s https://codecov.io/bash) -J 'travis-ci-example'
