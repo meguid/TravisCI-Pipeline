@@ -55,7 +55,10 @@ class travis_ci_exTests: XCTestCase {
         
         XCTAssertEqual(start.detectStatus(index: 0), Status.invalid.rawValue)
         XCTAssertEqual(start.detectStatus(index: 1), Status.fine.rawValue)
-
+    }
+    
+    func testToFail() {
+        XCTAssertEqual(0, 1)
     }
     
 }
