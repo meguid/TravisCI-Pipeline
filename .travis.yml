@@ -7,4 +7,4 @@ script:
 - xcodebuild -scheme SwiftExample -workspace SwiftExample.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6S,OS=9.1' build test
 after_success:
 - bash <(curl -s https://codecov.io/bash) -J 'travis-ci-example'
-CODECOV_TOKEN: 72c87507-66c5-46bc-965a-cc777e9bfb08
+codecov_token : 72c87507-66c5-46bc-965a-cc777e9bfb08
