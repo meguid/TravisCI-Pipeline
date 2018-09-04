@@ -3,8 +3,9 @@ xcode_workspace: travis-ci-ex.xcworkspace
 xcode_scheme: travis-ci-exTests
 xcode_destination: platform=iOS Simulator,name=iPhone 8 Plus,OS=11.1
 podfile: Podfile
-script:
-- xcodebuild -scheme travis-ci-ex -workspace travis-ci-ex.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.1' build test
+
+before_install: rvm use $RVM_RUBY_VERSION
+install: bundle install --without=documentation --path ../travis_bundle_dir
 after_success:
-- bash <(curl -s https://codecov.io/bash) -J 'travis-ci-example'
-codecov_token : 72c87507-66c5-46bc-965a-cc777e9bfb08
+- slather
+- bash <(curl -s https://codecov.io/bash) -f report.xml -X coveragepy -X gcov -X xcode

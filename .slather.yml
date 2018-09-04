@@ -1,0 +1,11 @@
+# .slather.yml
+
+coverage_service: cobertura_xml
+xcodeproj: travis-ci-ex.xcodeproj
+scheme: travis-ci-ex
+configuration: TestedConfiguration
+source_directory: travis-ci-ex
+output_directory: report
+ignore:
+- Pods/*
+
