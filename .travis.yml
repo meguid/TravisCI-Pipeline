@@ -1,5 +1,4 @@
 language: swift
 xcode_project: travis-ci-ex.xcodeproj
 xcode_scheme: travis-ci-exTests
-xcode_destination: platform=iOS Simulator,name=iPhone 6,OS=9.3'
-
+xcode_destination: platform=iOS Simulator,name=iPhone 8 Plus,OS=11.1
