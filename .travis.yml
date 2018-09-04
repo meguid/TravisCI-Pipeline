@@ -4,8 +4,6 @@ xcode_scheme: travis-ci-exTests
 xcode_destination: platform=iOS Simulator,name=iPhone 8 Plus,OS=11.1
 podfile: Podfile
 
-before_install: rvm use $RVM_RUBY_VERSION
-install: bundle install --without=documentation --path ../travis_bundle_dir
 after_success:
 - slather
 - bash <(curl -s https://codecov.io/bash) -f report.xml -X coveragepy -X gcov -X xcode
