@@ -1,3 +1,4 @@
 language: swift
 xcode_project: travis-ci-ex.xcodeproj
+xcode_scheme: travis-ci-ex/travis-ci-exTests
 
