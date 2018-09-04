@@ -1,1 +1,4 @@
 language: swift
+xcode_project: travis-ci-ex/travis-ci-ex.xcodeproj
+xcode_scheme: travis-ci-ex/travis-ci-exTests
+xcode_destination: platform=iOS Simulator,OS=10.1,name=iPad Pro (9.7-inch)
