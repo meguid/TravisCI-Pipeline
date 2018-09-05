@@ -1,5 +1,8 @@
 language: swift
 
+before_install:
+- pod repo update
+
 install:
 - ./install_swiftlint.sh
 
