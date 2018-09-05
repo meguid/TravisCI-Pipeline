@@ -3,12 +3,7 @@ coverage:
   precision: 2
   round: down
   range: "70...100"
-  status:
-    project: no
-
-    patch: no
-
-    changes: no
+  status: no
 
 comment:
   layout: "header, diff, changes"
