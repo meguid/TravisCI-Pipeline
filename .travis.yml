@@ -1,6 +1,4 @@
 language: swift
-install:
-- ./install_swiftlint.sh
 script:
 - xcodebuild -scheme travis-ci-exTests -workspace travis-ci-ex.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.1' -enableCodeCoverage YES build test
 - bash <(curl -s https://codecov.io/bash) -cF ios
