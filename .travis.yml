@@ -1,6 +1,5 @@
 language: swift
-xcode_workspace: travis-ci-ex.xcworkspace
-xcode_scheme: travis-ci-exTests
-xcode_destination: platform=iOS Simulator,name=iPhone 8 Plus,OS=11.1
+osx_image: xcode9.0
 podfile: Podfile
-
+script:
+- xcodebuild test -workspace travis-ci-ex.xcworkspace -scheme travis-ci-exTests -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.1'
