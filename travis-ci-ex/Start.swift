@@ -28,9 +28,9 @@ class Start: UIViewController {
 
     func detectStatus(index: Int) -> String {
         if index == 0 {
-            return Status.invalid.rawValue
+            return Status.Invalid.rawValue
         }
-        return Status.fine.rawValue
+        return Status.Fine.rawValue
     }
 
     func untestesMethod() {
