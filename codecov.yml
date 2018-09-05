@@ -1,11 +1,16 @@
-codecov:
-    notify:
-        require_ci_to_pass: yes
-
 coverage:
-    round: down
-    range: 80...100
     status:
         project:
             default:
-                target: 80%
+                # basic
+                target: auto
+                threshold: null
+                base: auto
+                # advanced
+                branches: null
+                if_no_uploads: error
+                if_not_found: success
+                if_ci_failed: error
+                only_pulls: false
+                flags: null
+                paths: null
