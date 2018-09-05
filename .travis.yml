@@ -2,3 +2,5 @@ language: swift
 osx_image: xcode9.0
 script:
 - xcodebuild test -workspace travis-ci-ex.xcworkspace -scheme travis-ci-exTests -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.1' -podfile Podfile
+after_success:
+- bash <(curl -s https://codecov.io/bash)
