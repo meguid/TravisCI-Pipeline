@@ -1,1 +1,4 @@
+coverage:
+ignore:
+- travis-ci-exTests/*
 
