@@ -12,27 +12,27 @@ class Start: UIViewController {
 
     @IBOutlet weak var statusButton: UILabel!
     @IBOutlet var actionButtons: [UIButton]!
-    
+
     @IBAction func acitonDone(_ sender: UIButton) {
         if let index = getIntIndex(for: sender, at: actionButtons) {
             statusButton.text = detectStatus(index: index)
         }
     }
-    
+
     func getIntIndex(for button: UIButton, at buttons: [UIButton]) -> Int? {
         if let index = buttons.index(of: button) {
             return buttons.distance(from: buttons.startIndex, to: index)
         }
         return nil
     }
-    
+
     func detectStatus(index: Int) -> String {
         if index == 0 {
             return Status.invalid.rawValue
         }
         return Status.fine.rawValue
     }
-    
+
     func untestesMethod() {
         print("untestesMethod")
         print("untestesMethod")
@@ -66,7 +66,7 @@ class Start: UIViewController {
     }
 }
 
-enum Status : String {
+enum Status: String {
     case invalid = "Why you've done this"
     case fine = "No Problem"
 }

@@ -10,7 +10,7 @@ import XCTest
 @testable import travis_ci_ex
 
 class StartTests: XCTestCase {
-    
+
     var start: Start!
     var buttons: [UIButton]!
     var firstButton: UIButton!
@@ -23,7 +23,7 @@ class StartTests: XCTestCase {
         secondButton = UIButton()
         buttons = [firstButton, secondButton]
     }
-    
+
     override func tearDown() {
         start = nil
         firstButton = nil
@@ -31,14 +31,14 @@ class StartTests: XCTestCase {
         buttons = nil
         super.tearDown()
     }
-    
+
     func testgetIntIndex() {
-        
+
         // test nil index
         XCTAssertNotNil(start.getIntIndex(for: firstButton, at: buttons))
         XCTAssertNotNil(start.getIntIndex(for: secondButton, at: buttons))
         XCTAssertNil(start.getIntIndex(for: UIButton(), at: buttons))
-        
+
         // test index after remove and append again
         XCTAssertNotNil(start.getIntIndex(for: firstButton, at: buttons))
         buttons.remove(at: 0)
@@ -50,9 +50,9 @@ class StartTests: XCTestCase {
         XCTAssertEqual(start.getIntIndex(for: firstButton, at: buttons), 0)
         XCTAssertEqual(start.getIntIndex(for: secondButton, at: buttons), 1)
     }
-    
+
     func testdetectStatus() {
-        
+
         XCTAssertEqual(start.detectStatus(index: 0), Status.invalid.rawValue)
         XCTAssertEqual(start.detectStatus(index: 1), Status.fine.rawValue)
     }
