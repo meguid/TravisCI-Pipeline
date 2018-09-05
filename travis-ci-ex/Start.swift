@@ -67,6 +67,6 @@ class Start: UIViewController {
 }
 
 enum Status: String {
-    case invalid = "Why you've done this"
-    case fine = "No Problem"
+    case Invalid = "Why you've done this"
+    case Fine = "No Problem"
 }
