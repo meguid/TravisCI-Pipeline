@@ -28,9 +28,9 @@ class Start: UIViewController {
 
     func detectStatus(index: Int) -> String {
         if index == 0 {
-            return Status.Invalid.rawValue
+            return Status.invalid.rawValue
         }
-        return Status.Fine.rawValue
+        return Status.fine.rawValue
     }
 
     func untestesMethod() {
@@ -67,6 +67,6 @@ class Start: UIViewController {
 }
 
 enum Status: String {
-    case Invalid = "Why you've done this"
-    case Fine = "No Problem"
+    case invalid = "Why you've done this"
+    case fine = "No Problem"
 }
