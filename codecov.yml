@@ -7,6 +7,5 @@ coverage:
     range: 80...100
     status:
         project:
-            default: false
-            tests:
+            default:
                 target: 80%
