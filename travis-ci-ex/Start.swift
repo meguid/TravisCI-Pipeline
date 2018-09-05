@@ -32,6 +32,17 @@ class Start: UIViewController {
         }
         return Status.fine.rawValue
     }
+    
+    func untestesMethod() {
+        print("untestesMethod")
+        print("untestesMethod")
+        print("untestesMethod")
+        print("untestesMethod")
+        print("untestesMethod")
+        print("untestesMethod")
+        print("untestesMethod")
+        print("untestesMethod")
+    }
 }
 
 enum Status : String {
