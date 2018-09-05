@@ -1,64 +1,15 @@
-codecov:
-  branch: master  # override the default branch
-
+# This file represents the default values when a customer has not filled them out
 coverage:
-  precision: 2  # 2 = xx.xx%, 0 = xx%
-  round: down # default down
-  range: 50...60 # default 70...90. red...green
-
+  precision: 2
+  round: down
+  range: "70...100"
   status:
-    project:
-      default:
-        against: parent
-        target: auto
-        threshold: 1%
-        branches:
-          - master
-        if_no_uploads: error
-        if_not_found: success
-        if_ci_failed: error
-        only_pulls: false
-        flags:
-          - integration
-        paths:
-          - folder
+    project: no
 
-    patch:
-      default:
-        against: parent
-        target: 80%
-        branches: null
-        if_no_uploads: success
-        if_not_found: success
-        if_ci_failed: error
-        only_pulls: false
-        flags:
-          - integration
-        paths:
-          - folder
-    
-    changes:
-      default:
-        against: parent
-        branches: null
-        if_no_uploads: error
-        if_not_found: success
-        if_ci_failed: error
-        only_pulls: false
-        flags:
-          - integration
-        paths:
-          - folder
+    patch: no
 
-  flags:
-    integration:
-      branches:
-        - master
-      ignore:
-        - app/ui
+    changes: no
 
-  ignore: # files and folders for processing
-    - tests/*
-  
-  fixes:
-    - "old_path::new_path"
+comment:
+  layout: "header, diff, changes"
+  behavior: default
