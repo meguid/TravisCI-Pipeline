@@ -10,12 +10,12 @@ import UIKit
 
 class Start: UIViewController {
 
-    @IBOutlet weak var AstatusButton: UILabel!
+    @IBOutlet weak var statusButton: UILabel!
     @IBOutlet var actionButtons: [UIButton]!
 
     @IBAction func acitonDone(_ sender: UIButton) {
         if let index = getIntIndex(for: sender, at: actionButtons) {
-            AstatusButton.text = detectStatus(index: index)
+            statusButton.text = detectStatus(index: index)
         }
     }
 
