@@ -8,7 +8,7 @@
 
 import XCTest
 
-class travis_ci_exUITests: XCTestCase {
+class StartUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

@@ -14,8 +14,8 @@
 		BFF0694A213EA88400997063 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF06948213EA88400997063 /* Main.storyboard */; };
 		BFF0694C213EA88400997063 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF0694B213EA88400997063 /* Assets.xcassets */; };
 		BFF0694F213EA88400997063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF0694D213EA88400997063 /* LaunchScreen.storyboard */; };
-		BFF0695A213EA88400997063 /* travis_ci_exTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF06959213EA88400997063 /* travis_ci_exTests.swift */; };
-		BFF06965213EA88400997063 /* travis_ci_exUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF06964213EA88400997063 /* travis_ci_exUITests.swift */; };
+		BFF0695A213EA88400997063 /* StartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF06959213EA88400997063 /* StartTests.swift */; };
+		BFF06965213EA88400997063 /* StartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF06964213EA88400997063 /* StartUITests.swift */; };
 		C4AB0333610F22FC789DF888 /* Pods_travis_ci_ex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B7339179F665C2FE9DD595 /* Pods_travis_ci_ex.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +51,10 @@
 		BFF0694E213EA88400997063 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFF06950213EA88400997063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFF06955213EA88400997063 /* travis-ci-exTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "travis-ci-exTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFF06959213EA88400997063 /* travis_ci_exTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travis_ci_exTests.swift; sourceTree = "<group>"; };
+		BFF06959213EA88400997063 /* StartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTests.swift; sourceTree = "<group>"; };
 		BFF0695B213EA88400997063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFF06960213EA88400997063 /* travis-ci-exUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "travis-ci-exUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFF06964213EA88400997063 /* travis_ci_exUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travis_ci_exUITests.swift; sourceTree = "<group>"; };
+		BFF06964213EA88400997063 /* StartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUITests.swift; sourceTree = "<group>"; };
 		BFF06966213EA88400997063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFFF42079A20BA63EFDE48AA /* Pods-travis-ci-exUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travis-ci-exUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-travis-ci-exUITests/Pods-travis-ci-exUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D14959ADA60D07A69F4CE77E /* Pods_travis_ci_exTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travis_ci_exTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,7 +137,7 @@
 		BFF06958213EA88400997063 /* travis-ci-exTests */ = {
 			isa = PBXGroup;
 			children = (
-				BFF06959213EA88400997063 /* travis_ci_exTests.swift */,
+				BFF06959213EA88400997063 /* StartTests.swift */,
 				BFF0695B213EA88400997063 /* Info.plist */,
 			);
 			path = "travis-ci-exTests";
@@ -146,7 +146,7 @@
 		BFF06963213EA88400997063 /* travis-ci-exUITests */ = {
 			isa = PBXGroup;
 			children = (
-				BFF06964213EA88400997063 /* travis_ci_exUITests.swift */,
+				BFF06964213EA88400997063 /* StartUITests.swift */,
 				BFF06966213EA88400997063 /* Info.plist */,
 			);
 			path = "travis-ci-exUITests";
@@ -176,6 +176,7 @@
 				BFF0693D213EA88300997063 /* Sources */,
 				BFF0693E213EA88300997063 /* Frameworks */,
 				BFF0693F213EA88300997063 /* Resources */,
+				BFF06972213FF57600997063 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -352,6 +353,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BFF06972213FF57600997063 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -368,7 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFF0695A213EA88400997063 /* travis_ci_exTests.swift in Sources */,
+				BFF0695A213EA88400997063 /* StartTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFF06965213EA88400997063 /* travis_ci_exUITests.swift in Sources */,
+				BFF06965213EA88400997063 /* StartUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import XCTest
 @testable import travis_ci_ex
 
-class travis_ci_exTests: XCTestCase {
+class StartTests: XCTestCase {
     
     var start: Start!
     var buttons: [UIButton]!
