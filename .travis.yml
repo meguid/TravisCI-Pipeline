@@ -10,5 +10,3 @@ script:
 - bash <(curl -s https://codecov.io/bash) -cF ios
 - echo "Meguid"
 - bash logCoverage.sh
-- bash /logCoverage.sh
-- bash ./logCoverage.sh
