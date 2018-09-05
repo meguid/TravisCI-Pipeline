@@ -1,7 +1,5 @@
 language: swift
 
-before_install: brew upgrade swiftlint
-
 install:
 - ./install_swiftlint.sh
 
