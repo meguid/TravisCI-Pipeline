@@ -1,9 +1,8 @@
-# This file represents the default values when a customer has not filled them out
 coverage:
   precision: 2
   round: down
   range: "70...100"
-  status: no
+  status: off
 
 comment:
   layout: "header, diff, changes"
