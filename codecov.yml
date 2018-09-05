@@ -1,14 +1,5 @@
 codecov:
-  token: uuid  # Your private repository token
-  url: "http"  # for Codecov Enterprise customers
-  slug: "owner/repo"  # for Codecov Enterprise customers
   branch: master  # override the default branch
-  bot: username  # set user whom will be the consumer of oauth requests
-  ci:  # Custom CI domains if Codecov does not identify them automatically
-    - ci.domain.com
-    - !provider  # ignore these providers when checking if CI passed
-                 # ex. You may test on Travis, Circle, and AppVeyor, but only need
-                 # to check if Travis passes. Therefore add: !circle and !appveyor
   notify: # ADVANCED USE ONLY
     after_n_builds: null      # number of expected builds to recieve before sending notifications
                               # after: check ci status unless disabled via require_ci_to_pass
@@ -21,62 +12,6 @@ coverage:
   precision: 2  # 2 = xx.xx%, 0 = xx%
   round: down|up|nearest # default down
   range: 50...60 # default 70...90. red...green
-
-  notify:
-    irc:
-      default:
-        server: "chat.freenode.net"|encrypted
-        branches: null  # all branches by default
-        threshold: 1%
-        message: "Coverage {{changed}} for {{owner}}/{{repo}}"  # customize the message
-        flags: null
-        paths: null
-
-    slack:
-      default:
-        url: "http"|encrypted
-        threshold: 1%
-        branches: null  # all branches by default
-        message: "Coverage {{changed}} for {{owner}}/{{repo}}"  # customize the message
-        attachments: "sunburst, diff"
-        only_pulls: false
-        flags: null
-        paths: null
-
-    email:
-      default:
-        to:
-          - example@domain.com
-          - &author
-        threshold: 1%
-        only_pulls: false
-        layout: header, diff, trends
-        flags: null
-        paths: null
-
-    hipchat:
-      default:
-        url: "http"|encrypted
-        room: name|id
-        threshold: 1%
-        token: encrypted
-        branches: null  # all branches by default
-        notify: false  # if the hipchat message is silent or loud (default false)
-        message: "Coverage {{changed}} for {{owner}}/{{repo}}"  # customize the message
-        flags: null
-        paths: null
-
-    gitter:
-      url: "http"|encrypted
-      threshold: 1%
-      branches: null  # all branches by default
-      message: "Coverage {{changed}} for {{owner}}/{{repo}}"  # customize the message
-
-    webhooks:
-      _name_:
-        url: "http"|encrypted
-        threshold: 1%
-        branches: null  # all branches by default
 
   status:
     project:
