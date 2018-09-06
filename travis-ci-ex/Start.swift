@@ -25,7 +25,7 @@ class Start: UIViewController {
         }
         return nil
     }
-
+    
     func detectStatus(index: Int) -> String {
         if index == 0 {
             return Status.invalid.rawValue
@@ -34,30 +34,6 @@ class Start: UIViewController {
     }
 
     func untestesMethod() {
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
-        print("untestesMethod")
         print("untestesMethod")
         print("untestesMethod")
         print("untestesMethod")
