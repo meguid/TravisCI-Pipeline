@@ -38,6 +38,10 @@ class Start: UIViewController {
         print("untestesMethod")
         print("untestesMethod")
         print("untestesMethod")
+        print("untestesMethod")
+        print("untestesMethod")
+        print("untestesMethod")
+
     }
 }
 
