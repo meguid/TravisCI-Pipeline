@@ -44,3 +44,34 @@ Building a Continues Integration pipeline using Travis CI for iOS Applications.
      - Drag the dependency above your test target so it is built first.
 
 - [x] You will now have a new file in the xcshareddata/xcschemes directory underneath your Xcode project. This is the shared Scheme that you just configured. Check this file into your repository and xcodebuild will be able to find and execute your tests.
+
+## Running Static Code Analysis Tool (SwiftLint) and break the build in case of failure:
+
+- [x] Add install command to **`.travis.yml`** file to install Swiftlint.
+  ```bash
+  language: swift
+  osx_image: xcode10  
+  
+  install:
+  - ./install_swiftlint.sh
+
+  script:
+  - xcodebuild -workspace WORKSPACEPATH -scheme SCHEME -derivedDataPath BUILDPATH -destination 'platform=iOS Simulator,OS=12.0,name=iPhone 7' -enableCodeCoverage YES clean build test
+  ```
+
+- [x] Add a [Swiftlint YML file](https://github.com/realm/SwiftLint/blob/master/.swiftlint.yml) **`.swiftlint.yml`** to your project folder if you want to configure custom rules for swiftlint.
+
+- [x] Add script command in **`.travis.yml`** file to run swiftlint, but install your pods before.
+  ```bash
+  language: swift
+  osx_image: xcode10  
+  
+  install:
+  - ./install_swiftlint.sh
+
+  script:
+  - pod install
+  - swiftlint
+  - xcodebuild -workspace WORKSPACEPATH -scheme SCHEME -derivedDataPath BUILDPATH -destination 'platform=iOS Simulator,OS=12.0,name=iPhone 7' -enableCodeCoverage YES clean build test
+  ```
+- [x] DONE! Now your build will fail in case there's errors in swiftlint.
