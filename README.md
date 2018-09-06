@@ -24,3 +24,7 @@ script:
 - I prefer to set custom **`derivedDataPath`** so I can access it later for getting coverage percentage.
 - Set simulator **`OS`** version mathcing with your **`osx_image`** value (for example xcode10 and 12.0)
 - You can change **`Swift`** to **`objective-c`**.
+
+- [x] Add the **`.travis.yml`** file to git, commit and push, to trigger a Travis CI build.
+- [x] Check the build status page to see if your build passes or fails.
+- [x] Eureka!!, You have built your first baby CI Pipeline.
