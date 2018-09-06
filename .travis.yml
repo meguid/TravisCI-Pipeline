@@ -6,5 +6,6 @@ install:
 script:
 - pod install
 - swiftlint
-- xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath Build/ -destination 'platform=iOS Simulator,OS=11.3,name=iPhone 7' -enableCodeCoverage YES clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+- rm -r Build
+- xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath Build/ -destination 'platform=iOS Simulator,OS=11.3,name=iPhone 7' -enableCodeCoverage YES clean build test
 - bash logCoverage.sh
