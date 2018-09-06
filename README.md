@@ -1,4 +1,4 @@
-# Travis CI Pipelint for iOS
+# Travis CI Pipeline for iOS
 Building a Continues Integration pipeline using Travis CI for iOS Applications.
 
 ## Requirements
@@ -75,3 +75,46 @@ Building a Continues Integration pipeline using Travis CI for iOS Applications.
   - xcodebuild -workspace WORKSPACEPATH -scheme SCHEME -derivedDataPath BUILDPATH -destination 'platform=iOS Simulator,OS=12.0,name=iPhone 7' -enableCodeCoverage YES clean build test
   ```
 - [x] DONE! Now your build will fail in case there's errors in swiftlint.
+
+## Gather code coverage data and break the build with given threshold
+
+- [x] Enable "Gather coverage data" in your test scheme.
+- [x] Create a new bash script **`logCoverage.sh`**
+- [x] Use xccov to generate coverage reports, then we convert it to json (Read more about xccov)
+  ```bash
+  xcrun xccov view Build/Logs/Test/*.xcresult/3_Test/action.xccovreport --json > coverage.json
+  ```
+- [x] Parse the coverage using **`Parser.swift`** 
+  ```bash
+  coverage=`swift Parser.swift coverage.json`
+  ```
+- [x] Then fail (exit with non 0 code) if coverage is less than 70%
+  ```bash
+  xcrun xccov view Build/Logs/Test/*.xcresult/3_Test/action.xccovreport --json > coverage.json
+  coverage=`swift Parser.swift coverage.json`
+  echo $coverage
+  if [ $coverage -lt 70 ];
+  then
+  exit 1
+  else
+  exit 0
+  fi
+  ```
+- [x] Run  **`logCoverage.sh`** from  **`.travis.yml`** file (bash logCoverage.sh)
+  ```bash
+  language: swift
+  osx_image: xcode10
+
+  install:
+  - ./install_swiftlint.sh
+
+  script:
+  - pod install
+  - swiftlint
+  - xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath Build/ -destination 'platform=iOS Simulator,OS=12.0,name=iPhone 7' -enableCodeCoverage YES clean build test
+  - bash logCoverage.sh
+  ```
+- [x] DONE ;) Now with every git commit Travis will fetch the coverage from xcode and fail when coverage is less than 70%
+
+
+
