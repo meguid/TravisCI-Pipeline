@@ -1,4 +1,6 @@
 # Travis CI Pipeline for iOS
+[![Build Status](https://travis-ci.org/meguid/Travis-CI-Pipeline.svg?branch=master)](https://travis-ci.org/meguid/Travis-CI-Pipeline)
+
 Building a Continues Integration pipeline using Travis CI for iOS Applications.
 
 ## Requirements
