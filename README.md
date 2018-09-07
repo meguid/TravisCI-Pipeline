@@ -44,6 +44,7 @@ Building a Continues Integration pipeline using Travis CI for iOS Applications.
      - Drag the dependency above your test target so it is built first.
 
 - [x] You will now have a new file in the xcshareddata/xcschemes directory underneath your Xcode project. This is the shared Scheme that you just configured. Check this file into your repository and xcodebuild will be able to find and execute your tests.
+- [x] YES!! Now with every git commit Travis will run yout tests and break the build if any test case fails.
 
 ## Running Static Code Analysis Tool (SwiftLint) and break the build in case of failure:
 
