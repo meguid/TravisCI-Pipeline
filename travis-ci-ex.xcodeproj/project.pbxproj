@@ -541,7 +541,7 @@
 			baseConfigurationReference = 7AB5AFD67A7BE6D124BD1E5C /* Pods-travis-ci-ex.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Rana Said (L45EVV23XC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Z6ZC4TSRX;
 				INFOPLIST_FILE = "travis-ci-ex/Info.plist";
@@ -560,7 +560,7 @@
 			baseConfigurationReference = BA69975757AA72EB39B71770 /* Pods-travis-ci-ex.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: EduKitten Ltd (4Z6ZC4TSRX)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Z6ZC4TSRX;
 				INFOPLIST_FILE = "travis-ci-ex/Info.plist";
