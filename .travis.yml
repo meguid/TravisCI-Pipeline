@@ -2,9 +2,6 @@ language: swift
 osx_image: xcode10
 
 before_install:
-- openssl aes-256-cbc -k "AppSigningMadness" -in DISTTRAVIS.mobileprovision -out DISTTRAVIS.mobileprovision.enc -a
-- openssl aes-256-cbc -k "AppSigningMadness" -in dist.cer -out dist.cer.enc -a
-- openssl aes-256-cbc -k "AppSigningMadness" -in dist.p12 -out dist.p12.enc -a
 - ./travis-scripts/add-keys.sh
 - ./travis-scripts/update-bundle.sh
 
