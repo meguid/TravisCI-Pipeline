@@ -1,4 +1,6 @@
 # Travis CI Pipeline for iOS
+[![Build Status](https://travis-ci.org/meguid/Travis-CI-Pipeline.svg?branch=master)](https://travis-ci.org/meguid/Travis-CI-Pipeline)
+
 Building a Continues Integration pipeline using Travis CI for iOS Applications.
 
 ## Requirements
@@ -80,7 +82,7 @@ Building a Continues Integration pipeline using Travis CI for iOS Applications.
 ## Gather code coverage data and break the build with given threshold
 
 - [x] Enable "Gather coverage data" in your test scheme.
-- [x] Create a new bash script **`logCoverage.sh`**
+- [x] Create a new bash script **`validateCoverage.sh`**
 - [x] Use xccov to generate coverage reports, then we convert it to json (Read more about xccov)
   ```bash
   xcrun xccov view Build/Logs/Test/*.xcresult/3_Test/action.xccovreport --json > coverage.json
@@ -101,7 +103,7 @@ Building a Continues Integration pipeline using Travis CI for iOS Applications.
   exit 0
   fi
   ```
-- [x] Run  **`logCoverage.sh`** from  **`.travis.yml`** file (bash logCoverage.sh)
+- [x] Run  **`validateCoverage.sh`** from  **`.travis.yml`** file (bash validateCoverage.sh)
   ```bash
   language: swift
   osx_image: xcode10
@@ -113,7 +115,7 @@ Building a Continues Integration pipeline using Travis CI for iOS Applications.
   - pod install
   - swiftlint
   - xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath Build/ -destination 'platform=iOS Simulator,OS=12.0,name=iPhone 7' -enableCodeCoverage YES clean build test
-  - bash logCoverage.sh
+  - bash validateCoverage.sh
   ```
 - [x] DONE ;) Now with every git commit Travis will fetch the coverage from xcode and fail when coverage is less than 70%
 
