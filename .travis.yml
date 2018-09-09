@@ -12,7 +12,9 @@ script:
 - pod install
 - swiftlint
 - xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath Build/ -destination 'platform=iOS Simulator,OS=12.0,name=iPhone 7' -enableCodeCoverage YES clean build test
-- xctool -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -sdk iphoneos -configuration Release OBJROOT=build SYMROOT=build ONLY_ACTIVE_ARCH=NO
+- xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath Build/ -destination -sdk iphoneos -configuration Release ONLY_ACTIVE_ARCH=NO
+
+- xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -sdk iphoneos -configuration Release OBJROOT=build SYMROOT=build ONLY_ACTIVE_ARCH=NO
 - bash validateCoverage.sh
 
 after_success:
