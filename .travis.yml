@@ -11,9 +11,8 @@ install:
 script:
 - pod install
 - swiftlint
-- xctool -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -sdk iphonesiumlator -derivedDataPath Build/ -enableCodeCoverage YES clean build test
-- xctool -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO
-- xctool test -workspace travis-ci-ex.xcworkspace -scheme travis-ci-exTests -sdk iphonesiumlator
+- xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath Build/ -destination 'platform=iOS Simulator,OS=12.0,name=iPhone 7' -enableCodeCoverage YES clean build test
+- xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath Build/ ONLY_ACTIVE_ARCH=NO -sdk iphoneos7.0 -configuration Release
 
 after_success:
 - ./travis-scripts/ipa-signing.sh
