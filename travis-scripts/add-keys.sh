@@ -35,4 +35,4 @@ security import ./dist.p12 -k ~/Library/Keychains/ios-build.keychain -P "AppSign
 
 # Put the provisioning profile in place
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-cp ./$CERT_FOLDER/DISTTRAVIS.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+cp ./DISTTRAVIS.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
