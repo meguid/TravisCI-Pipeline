@@ -15,12 +15,6 @@ echo "***************************"
 echo "*        Adding Keys       *"
 echo "***************************"
 
-if [ "$CERT_FOLDER" == "" ]; then
-# Get the right certificate from GitHub
-git clone git@github.com:User/repo.git ./ios-distribution
-CERT_FOLDER = "ios-distribution"
-fi
-
 # Create a custom keychain
 security create-keychain -p travis ios-build.keychain
 
