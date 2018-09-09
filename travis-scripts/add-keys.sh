@@ -35,4 +35,4 @@ security import ./$CERT_FOLDER/private_key.p12 -k ~/Library/Keychains/ios-build.
 
 # Put the provisioning profile in place
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-cp ./$CERT_FOLDER/Provisioning_Profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+cp ./$CERT_FOLDER/DISTTRAVIS.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
