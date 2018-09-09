@@ -237,7 +237,7 @@
 				TargetAttributes = {
 					BFF06940213EA88300997063 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					BFF06954213EA88400997063 = {
 						CreatedOnToolsVersion = 9.0;
@@ -541,8 +541,8 @@
 			baseConfigurationReference = 7AB5AFD67A7BE6D124BD1E5C /* Pods-travis-ci-ex.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rana Said (L45EVV23XC)";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Z6ZC4TSRX;
 				INFOPLIST_FILE = "travis-ci-ex/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -561,7 +561,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: EduKitten Ltd (4Z6ZC4TSRX)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Z6ZC4TSRX;
 				INFOPLIST_FILE = "travis-ci-ex/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
