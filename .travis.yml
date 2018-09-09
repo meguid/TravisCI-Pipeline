@@ -1,6 +1,13 @@
 language: swift
 osx_image: xcode10
 
+before_install:
+- openssl aes-256-cbc -k "AppSigningMadness" -in DISTTRAVIS.mobileprovision -out DISTTRAVIS.mobileprovision.enc -a
+- openssl aes-256-cbc -k "AppSigningMadness" -in dist.cer -out dist.cer.enc -a
+- openssl aes-256-cbc -k "AppSigningMadness" -in dist.p12 -out dist.p12.enc -a
+- ./travis-scripts/add-keys.sh
+- ./travis-scripts/update-bundle.sh
+
 install:
 - ./install_swiftlint.sh
 
@@ -8,4 +15,23 @@ script:
 - pod install
 - swiftlint
 - xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath Build/ -destination 'platform=iOS Simulator,OS=12.0,name=iPhone 7' -enableCodeCoverage YES clean build test
+- xctool -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -sdk iphoneos -configuration Release OBJROOT=build SYMROOT=build ONLY_ACTIVE_ARCH=NO
 - bash validateCoverage.sh
+
+after_success:
+- ./travis-scripts/ipa-signing.sh
+
+after_script:
+- ./travis-scripts/delete-keys.sh
+
+env:
+global:
+- secure: MxPj9C/6/pDZYFsRJemt3KQ6iGF2/qYWxGOj4b5zz7XRVPFDY1uHE4Tkdalo/phmMYTwrebpNiUYqAGoV1JuqoyZKMuP3p+Rhjvkak0jUW7KwKY+FrW1SvJQL0B7DdFldeFYsFP+lsfSozRpXFOLwt8cocDuZoNY/f0AeZklvAhoBKQoyqX9Xl1ZfIdyINbITrEq76zA6hC9uTEI1HUh2y3orw/Fq7YFjS0eTImGwop8L7e8TTC2psql/riJyrkr7p74nBrtFP68CN0AkVUvjQEnlz8dBkiiRiZwzb4lzdKGW6kxAcjve/nUn+I6X6q1bd/kIQ0bUrCNunaHVtZIq5AklvicqMKySms9HVVofJFgbloH+i/unhSu2yWx7/jzrzTw4/ZFDizhKwXXLTaO3I2+Tvuendes1i14pDoIOkwy1uBcWmFcNUV/G/wU1LJVKO4NTI1iDp7RM79m79PCX8S8gxF/zyGC0Dy7ROibclwjCglZxs1rF74wg/5j1sJpb62xMDtpUoq0gHKtGcvt1URqraobBrvzHpnzDjeEq5ewBPOSEfv9h7PZFPCQny4dRbnx0fYulngfF2xHGhvCQT7EOIhgqtFrbzAtIcPMpvtOAAfh/H+6J7lsjnNms53ALt3/y+WbEK9kJnXzmfEl64I3QJ15JUXTI6mEAfc09jQ=
+- APP_NAME="travis-ci-ex"
+- XCODE_SCHEME="travis-ci-ex"
+- UNIT_TEST_SCHEME="travis-ci-exTests"
+- 'DEVELOPER_NAME="iOS Distribution: EduKitten Ltd"'
+- PROJECT_DIRECTORY="/"
+- SCRIPT_FOLDER="travis-scripts"
+- CERT_FOLDER="ios-certs"
+- INFO_PLIST="travis-ci-ex/Info.plist"
