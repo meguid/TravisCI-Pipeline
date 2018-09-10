@@ -16,7 +16,6 @@ before_script:
 script:
 - pod install
 - swiftlint
-- security set-key-partition-list -S apple-tool:,apple: -s -k keychainPass keychainName
 - xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -sdk iphoneos -configuration Release -derivedDataPath build/ ONLY_ACTIVE_ARCH=NO
 
 after_script:
