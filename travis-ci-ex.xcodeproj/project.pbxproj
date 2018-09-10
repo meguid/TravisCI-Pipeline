@@ -541,15 +541,15 @@
 			baseConfigurationReference = 7AB5AFD67A7BE6D124BD1E5C /* Pods-travis-ci-ex.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4Z6ZC4TSRX;
 				INFOPLIST_FILE = "travis-ci-ex/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.travis-ci-ex";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.travis-ci-ex";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ff4356d1-2878-4846-849b-33274d4e3957";
-				PROVISIONING_PROFILE_SPECIFIER = devTRAVIS;
+				PROVISIONING_PROFILE = "440862b9-c3a0-4b48-bb48-b366ac911623";
+				PROVISIONING_PROFILE_SPECIFIER = dist;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -565,10 +565,10 @@
 				DEVELOPMENT_TEAM = 4Z6ZC4TSRX;
 				INFOPLIST_FILE = "travis-ci-ex/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.travis-ci-ex";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.travis-ci-ex";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e57471b3-87c1-4d4b-a060-14a12a2e9fe7";
-				PROVISIONING_PROFILE_SPECIFIER = DISTTRAVIS;
+				PROVISIONING_PROFILE = "440862b9-c3a0-4b48-bb48-b366ac911623";
+				PROVISIONING_PROFILE_SPECIFIER = dist;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

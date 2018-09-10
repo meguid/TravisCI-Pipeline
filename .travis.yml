@@ -6,8 +6,7 @@ before_install:
 - ./travis-scripts/update-bundle.sh
 - openssl aes-256-cbc -k "$password" -in dist.p12.enc -d -a -out dist.p12
 - openssl aes-256-cbc -k "$password" -in dist.cer.enc -d -a -out dist.cer
-- openssl aes-256-cbc -k "$password" -in devTRAVIS.mobileprovision.enc -d -a -out devTRAVIS.mobileprovision
-- openssl aes-256-cbc -k "$password" -in DISTTRAVIS.mobileprovision.enc -d -a -out DISTTRAVIS.mobileprovision
+- openssl aes-256-cbc -k "$password" -in dist.mobileprovision.enc -d -a -out dist.mobileprovision
 
 install:
 - ./install_swiftlint.sh
