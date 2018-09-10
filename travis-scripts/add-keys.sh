@@ -24,7 +24,6 @@ security default-keychain -s ios-build.keychain
 # Unlock the keychain
 security unlock-keychain -p travis ios-build.keychain
 
-security set-key-partition-list -S apple-tool:,apple: -s -k travis ios-build.keychain
 
 # Set keychain timeout to 1 hour for long builds
 # see http://www.egeek.me/2013/02/23/jenkins-and-xcode-user-interaction-is-not-allowed/
@@ -32,9 +31,11 @@ security set-key-partition-list -S apple-tool:,apple: -s -k travis ios-build.key
 
 
 # Add certificates to keychain and allow codesign to access them
-security import ./AppleWWDRCA.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
-security import ./dist.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
-security import ./dist.p12 -k ~/Library/Keychains/ios-build.keychain -P "" -T /usr/bin/codesign
+security import ./AppleWWDRCA.cer -k ~/Library/Keychains/ios-build.keychain -A /usr/bin/codesign
+security import ./dist.cer -k ~/Library/Keychains/ios-build.keychain -A /usr/bin/codesign
+security import ./dist.p12 -k ~/Library/Keychains/ios-build.keychain -P "" -A /usr/bin/codesign
+
+security set-key-partition-list -S apple-tool:,apple: -s -k travis ios-build.keychain
 
 # Put the provisioning profile in place
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
