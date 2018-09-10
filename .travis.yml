@@ -16,8 +16,9 @@ before_script:
 script:
 - pod install
 - swiftlint
-- xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath Build/ -destination 'platform=iOS Simulator,OS=12.0,name=iPhone 7' -enableCodeCoverage YES clean build test
-- xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath Build/ ONLY_ACTIVE_ARCH=NO -sdk iphoneos -configuration Release -allowProvisioningUpdates
+- xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath build/ -destination 'platform=iOS Simulator,OS=12.0,name=iPhone 7' -enableCodeCoverage YES clean build test
+- xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath build/ ONLY_ACTIVE_ARCH=NO -sdk iphoneos -configuration Release -allowProvisioningUpdates
+- bash validateCoverage.sh
 
 after_script:
 - ./travis-scripts/delete-keys.sh
