@@ -9,26 +9,29 @@
 #exit 0
 #fi
 
-OUTPUTDIR="IPA/"
+OUTPUTDIR="IPA"
 RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'`
 RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER Uploaded: $RELEASE_DATE"
 
-if [ ! -z "$HOCKEY_APP_ID" ] && [ ! -z "$HOCKEY_APP_TOKEN" ]; then
+HOCKEY_ID="2e7ea129f2964dfd99fed6d2b1449d5d"
+HOCKEY_TOKEN="8ae40bc6e6d09aa8e7acc7ff4d8733a4"
+
+if [ ! -z "$HOCKEY_ID" ] && [ ! -z "$HOCKEY_TOKEN" ]; then
 
 echo ""
 echo "***************************"
 echo "* Uploading to Hockeyapp  *"
 echo "***************************"
 
-curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
+curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_ID/app_versions \
 -F status="2" \
 -F notify="0" \
 -F notes="$RELEASE_NOTES" \
 -F notes_type="0" \
 -F tags="beta" \
--F ipa="@$OUTPUTDIR/$APP_NAME.ipa" \
--F dsym="@$OUTPUTDIR/$APP_NAME.app.dSYM.zip" \
--H "X-HockeyAppToken: $HOCKEY_APP_TOKEN"
+-F ipa="@$OUTPUTDIR/travis-ci-ex.ipa" \
+-F dsym="@$OUTPUTDIR/travis-ci-ex.app.dSYM.zip" \
+-H "X-HockeyAppToken: $HOCKEY_TOKEN"
 fi
 
 if [[ "$TRAVIS_TAG" == "production" ]]; then
@@ -44,7 +47,7 @@ curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
 -F notes="$RELEASE_NOTES" \
 -F notes_type="0" \
 -F tags="production" \
--F ipa="@$OUTPUTDIR/$APP_NAME.ipa" \
--F dsym="@$OUTPUTDIR/$APP_NAME.app.dSYM.zip" \
+-F ipa="@$OUTPUTDIR/travis-ci-ex.ipa" \
+-F dsym="@$OUTPUTDIR/travis-ci-ex.app.dSYM.zip" \
 -H "X-HockeyAppToken: $HOCKEY_APP_TOKEN"
 fi
