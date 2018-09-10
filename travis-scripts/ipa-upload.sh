@@ -15,8 +15,6 @@ RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER Uploaded: $RELEASE_DATE"
 
 if [ ! -z "$HOCKEY_APP_ID" ] && [ ! -z "$HOCKEY_APP_TOKEN" ]; then
 
-if [ "$TRAVIS_TAG" == "" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-
 echo ""
 echo "***************************"
 echo "* Uploading to Hockeyapp  *"
@@ -49,6 +47,4 @@ curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
 -F ipa="@$OUTPUTDIR/$APP_NAME.ipa" \
 -F dsym="@$OUTPUTDIR/$APP_NAME.app.dSYM.zip" \
 -H "X-HockeyAppToken: $HOCKEY_APP_TOKEN"
-fi
-
 fi
