@@ -10,7 +10,7 @@
 #fi
 
 PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/dist.mobileprovision"
-OUTPUTDIR="$PROJECT_DIRECTORY/build/Release-iphoneos"
+OUTPUTDIR="$PROJECT_DIRECTORY/"
 
 echo "***************************"
 echo "*        Signing          *"

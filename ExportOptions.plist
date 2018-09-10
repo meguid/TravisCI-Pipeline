@@ -12,13 +12,11 @@
 		<string>dist</string>
 	</dict>
 	<key>signingCertificate</key>
-	<string>iPhone Distribution</string>
+	<string>iPhone Distribution: EduKitten Ltd </string>
 	<key>signingStyle</key>
 	<string>manual</string>
 	<key>stripSwiftSymbols</key>
 	<true/>
-	<key>teamID</key>
-	<string>4Z6ZC4TSRX</string>
 	<key>thinning</key>
 	<string>&lt;none&gt;</string>
 </dict>

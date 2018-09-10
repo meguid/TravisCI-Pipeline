@@ -24,7 +24,7 @@ after_script:
 - ./travis-scripts/delete-keys.sh
 
 after_success:
-- ./travis-scripts/ipa-signing.sh
+- xcodebuild -exportArchive -archivePath ArchiveFolder/travis-ci-ex.xcarchive -exportOptionsPlist "ExportOptions.plist" -exportPath IPA
 
 env:
 global:
