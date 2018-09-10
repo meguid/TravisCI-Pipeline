@@ -2,29 +2,27 @@ language: swift
 osx_image: xcode10
 
 before_install:
-- openssl aes-256-cbc -k "password" -in dist.p12.enc -d -a -out dist.p12
-- openssl aes-256-cbc -k "password" -in dist.cer.enc -d -a -out dist.cer
-- openssl aes-256-cbc -k "password" -in dist.mobileprovision.enc -d -a -out dist.mobileprovision
+- bash decryptCertificates.sh
 
 install:
-- ./install_swiftlint.sh
+- bash install_swiftlint.sh
 
 before_script:
-- ./travis-scripts/add-keys.sh
-- ./travis-scripts/update-bundle.sh
+- bash travis-scripts/add-keys.sh
+- bash travis-scripts/update-bundle.sh
 
 script:
 - pod install
 - swiftlint
-- xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -derivedDataPath BuildFolder/ -destination 'platform=iOS Simulator,OS=12.0,name=iPhone 7' -enableCodeCoverage YES clean build test -archivePath ArchiveFolder/travis-ci-ex.xcarchive PROVISIONING_PROFILE="dist.mobileprovision" ONLY_ACTIVE_ARCH=NO archive
+- bash build.sh
 - bash validateCoverage.sh
 
 after_script:
-- ./travis-scripts/delete-keys.sh
+- bash travis-scripts/delete-keys.sh
 
 after_success:
-- xcodebuild -exportArchive -archivePath ArchiveFolder/travis-ci-ex.xcarchive -exportOptionsPlist "ExportOptions.plist" -exportPath IPA
-- ./travis-scripts/ipa-upload.sh
+- bash generateIPA.sh
+- bash travis-scripts/ipa-upload.sh
 
 env:
 global:
