@@ -2,11 +2,11 @@ language: swift
 osx_image: xcode10
 
 before_install:
-- ./travis-scripts/add-keys.sh
-- ./travis-scripts/update-bundle.sh
 - openssl aes-256-cbc -k "password" -in dist.p12.enc -d -a -out dist.p12
 - openssl aes-256-cbc -k "password" -in dist.cer.enc -d -a -out dist.cer
 - openssl aes-256-cbc -k "password" -in dist.mobileprovision.enc -d -a -out dist.mobileprovision
+- ./travis-scripts/add-keys.sh
+- ./travis-scripts/update-bundle.sh
 
 install:
 - ./install_swiftlint.sh
