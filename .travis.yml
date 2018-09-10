@@ -1,8 +1,8 @@
 language: swift
 osx_image: xcode10
-ts: travis-scripts
 
 before_install:
+- ts="travis-scripts"
 - bash $ts/decryptCertificates.sh
 
 install:
