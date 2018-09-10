@@ -30,7 +30,6 @@ curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_ID/app_versions \
 -F notes_type="0" \
 -F tags="beta" \
 -F ipa="@$OUTPUTDIR/travis-ci-ex.ipa" \
--F dsym="@$OUTPUTDIR/travis-ci-ex.app.dSYM.zip" \
 -H "X-HockeyAppToken: $HOCKEY_TOKEN"
 fi
 
