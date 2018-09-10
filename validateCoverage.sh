@@ -1,4 +1,4 @@
-xcrun xccov view Build/Logs/Test/*.xcresult/3_Test/action.xccovreport --json > coverage.json
+xcrun xccov view BuildFolder/Logs/Test/*.xcresult/3_Test/action.xccovreport --json > coverage.json
 coverage=`swift Parser.swift coverage.json`
 echo $coverage
 if [ $coverage -lt 70 ];
