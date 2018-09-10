@@ -6,25 +6,25 @@ before_install:
 - bash $ts/decryptCertificates.sh
 
 install:
-- bash travis-scripts/install_swiftlint.sh
+- bash $ts/install_swiftlint.sh
 
 before_script:
-- bash travis-scripts/add-keys.sh
-- bash travis-scripts/update-bundle.sh
+- bash $ts/add-keys.sh
+- bash $ts/update-bundle.sh
 
 script:
 - pod install
 - swiftlint
-- bash travis-scripts/build.sh
-- bash travis-scripts/validateCoverage.sh
+- bash $ts/build.sh
+- bash $ts/validateCoverage.sh
 
 after_script:
-- bash travis-scripts/delete-keys.sh
+- bash $ts/delete-keys.sh
 
 after_success:
-- bash travis-scripts/generateIPA.sh
-- bash travis-scripts/ipa-upload.sh
+- bash $ts/generateIPA.sh
+- bash $ts/ipa-upload.sh
 
 env:
 global:
-- bash travis-scripts/set-environment.sh
+- bash $ts/set-environment.sh
