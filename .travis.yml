@@ -10,7 +10,7 @@ install:
 - ./install_swiftlint.sh
 
 before_script:
-- ./travis-scripts/add-key.sh
+- ./travis-scripts/add-keys.sh
 - ./travis-scripts/update-bundle.sh
 
 script:
