@@ -119,5 +119,16 @@ Building a Continues Integration pipeline using Travis CI for iOS Applications.
   ```
 - [x] DONE ;) Now with every git commit Travis will fetch the coverage from xcode and fail when coverage is less than 70%
 
+## Certificates Signing, archive, generate IPA and upload to hockyapp.
+```bash
+  - bash decryptCertificates.sh
+  - bash add-keys.sh
+  - bash update-bundle.sh  
+  
+  - xcodebuild -workspace travis-ci-ex.xcworkspace -scheme travis-ci-ex -sdk iphoneos -configuration Release -derivedDataPath build/ -archivePath ArchiveFolder/travis-ci-ex.xcarchive PROVISIONING_PROFILE="dist.mobileprovision" ONLY_ACTIVE_ARCH=NO archive
 
+  - bash delete-keys.sh
+  - bash generateIPA.sh
+  - bash ipa-upload.sh
+  ```
 
