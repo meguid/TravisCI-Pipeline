@@ -1,6 +1,7 @@
 // to run: `swift parser.swift coverage.json`
 import Foundation
 
+
 class Parser {
     func parse(_ fileName: String) {
         guard let contents = readFile(fileName) else {
